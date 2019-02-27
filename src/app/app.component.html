@@ -3,10 +3,10 @@
   <mat-tab *ngIf='allData.length > 0' label="Total">
     <mat-grid-list cols="4" rowHeight="4:1" *ngFor="let account of allData">
       <h1>{{account.name}}</h1>
-      <mat-grid-list cols="{{wing.length}}" rowHeight="4:1" *ngFor="let wing of account.bossesKilled; let i = index">
+      <mat-grid-list cols="12" rowHeight="4:1" *ngFor="let wing of account.bossesKilled; let i = index">
         <mat-grid-tile *ngFor="let boss of wing; let j = index">
           <!-- <img [ngClass]="boss?'':'missing-boss'" src="{{pictureBosses[i][j]}}"> -->
-          <img *ngIf="boss" src="assets/killed-boss.jpg">
+          <img *ngIf="boss" src="{{pictureBosses[i][j]}}">
           <img *ngIf="!boss" src="assets/missing-boss.jpg">
         </mat-grid-tile>
       </mat-grid-list>
@@ -14,11 +14,12 @@
   </mat-tab>
 
   <mat-tab *ngFor='let account of allData; let i = index' label={{account.name}}>
-    <mat-grid-list cols="4" rowHeight="4:1">
-      <mat-grid-tile>1</mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
+    <mat-grid-list cols="{{wing.length}}" rowHeight="4:1" *ngFor="let wing of account.bossesKilled; let i = index">
+      <mat-grid-tile *ngFor="let boss of wing; let j = index">
+        <!-- <img [ngClass]="boss?'':'missing-boss'" src="{{pictureBosses[i][j]}}"> -->
+        <img *ngIf="boss" src="{{pictureBosses[i][j]}}">
+        <img *ngIf="!boss" src="assets/missing-boss.jpg">
+      </mat-grid-tile>
     </mat-grid-list>
   </mat-tab>
 </mat-tab-group>
