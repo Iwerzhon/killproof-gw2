@@ -1,3 +1,13 @@
+# TL;DR
+
+It's a pain hidding gw2 api keys, be aware that they will be visible through the network (no middleware/etc).
+But don't worry, they were made so that there is no harm.
+
+```
+ng build --prod --base-href "https://Iwerzhon.github.io/killproof-gw2/"
+ngh --dir dist\killproof-gw2\
+```
+
 # KillproofGw2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
